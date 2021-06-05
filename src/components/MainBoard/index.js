@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./style.module.css";
 import Searchinput from "../SearchInput/Searchinput";
+import FormInput from "../Form-input/form-input.component";
+import PayoutButton from "../CustomButton/CustomButton";
 
 const MainBoard = () => {
   let currentDate = new Date("2021-06-05T10:12:50.5000z").toDateString();
+  const [data, setData] = useState({});
+
+  const onChangeHandler = async (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+    // console.log(data);
+  };
 
   const payoutData = [
     {
@@ -104,10 +112,30 @@ const MainBoard = () => {
             </div>
           </div>
           {/* </div> */}
-          <div>
+          <div className={styles.filterSearch}>
             <p>Payout Table</p>
-            <div>
+            <div className={styles.filter_component}>
               <Searchinput />
+
+              <div>
+                <div className={styles.inputContainer}>
+                  {/* <i class="far fa-envelope icon">&#8358; </i> */}
+                  <FormInput
+                    type="text"
+                    name="nextDate"
+                    // min="2021-05-29"
+                    minDate={new Date(2021, 1, 1)}
+                    maxDate={new Date(2022, 1, 29)}
+                    onFocus={(e) => (e.currentTarget.type = "date")}
+                    onBlur={(e) => (e.currentTarget.type = "text")}
+                    placeholder="March,2021 &#xf073;"
+                    onChange={onChangeHandler}
+                  />
+                </div>
+              </div>
+              <div>
+                <PayoutButton>Payout</PayoutButton>
+              </div>
             </div>
           </div>
           <div>
@@ -127,6 +155,17 @@ const MainBoard = () => {
                 </tr>
               ))}
             </table>
+          </div>
+          <div style={{ marginButtom: "50px" }}>
+            <PayoutButton
+              style={{
+                width: "100%",
+                background: "inherit",
+                color: "#3D8F83",
+              }}
+            >
+              See more ..
+            </PayoutButton>
           </div>
         </div>
       </aside>

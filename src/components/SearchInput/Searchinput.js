@@ -14,6 +14,7 @@ const Searchinput = () => {
         <img
           className={styles.searchIcon}
           src="./klashaAssets/Search.svg"
+          width="20px"
           alt="search icon"
         />
       </div>
