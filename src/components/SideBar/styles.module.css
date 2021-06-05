@@ -1,0 +1,84 @@
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90px;
+}
+.menu_head {
+  font-weight: bold;
+  font-family: "Space Grotesk";
+  color: #000;
+  font-size: 18px;
+  padding: 10px 24px;
+  line-height: 17px;
+}
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 11;
+  background-color: #e5e5e5;
+  backdrop-filter: blur(20px);
+  color: #a6abb2;
+  overflow: hidden;
+  width: 250px;
+  height: 100vh;
+  transition: width 0.4s ease;
+  overflow: hidden;
+  font-family: "Space Grotesk", sans-serif;
+}
+.sidebar .menuList {
+  font-family: Founders Grotesk;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #a6abb2;
+
+  letter-spacing: 0.1px;
+
+  color: #a6abb2;
+}
+.sidebar h3 {
+  font-size: 16px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+
+  color: #2a2a2a;
+}
+.list_item {
+  padding: 10px 25px;
+  margin: 8px 0px;
+}
+.list_item img {
+  padding: 0 10px;
+}
+.list_item.active {
+  background-color: #fff;
+}
+.list_item:hover {
+  background-color: #f5f5f5;
+  border: 1px #dfdede solid;
+}
+
+@media (max-width: 556px) {
+  .sidebar {
+    /* width: 200px; */
+    display: none;
+    /* height: auto; */
+  }
+
+  .logo {
+    display: none;
+  }
+  .toggle-button {
+    position: relative;
+    top: 2%;
+  }
+  .main_board {
+    margin-left: auto; /* Same as the width of the sidenav */
+    transition: margin-left 0.3s ease;
+    padding: 0px 20px;
+  }
+}
