@@ -20,7 +20,7 @@ const SideBar = () => {
             </li>
             <li className={styles.list_item}>
               <img
-                src="./klashaAssets/wallet.svg"
+                src="./klashaAssets/Wallet.svg"
                 alt="dashboard balances icon"
               />
               <small>Balances</small>
