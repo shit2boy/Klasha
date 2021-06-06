@@ -4,7 +4,7 @@ import Searchinput from "../SearchInput/Searchinput";
 import FormInput from "../Form-input/form-input.component";
 import PayoutButton from "../CustomButton/CustomButton";
 
-const MainBoard = () => {
+const MainBoard = ({ onShowMenu }) => {
   let currentDate = new Date("2021-06-05T10:12:50.5000z").toDateString();
   const [data, setData] = useState({});
 
@@ -63,6 +63,14 @@ const MainBoard = () => {
           <div className={styles.header}>
             <div>
               {" "}
+              <span
+                className={styles.hideMenuBar}
+                onClick={() => {
+                  onShowMenu();
+                }}
+              >
+                ☰
+              </span>{" "}
               <h3 style={{ color: "#2A2A2A" }}>Balances</h3>
               <span>Today, {currentDate}</span>
             </div>
@@ -124,8 +132,8 @@ const MainBoard = () => {
                     type="text"
                     name="nextDate"
                     // min="2021-05-29"
-                    minDate={new Date(2021, 1, 1)}
-                    maxDate={new Date(2022, 1, 29)}
+                    min={new Date(2021, 1, 1)}
+                    max={new Date(2022, 1, 29)}
                     onFocus={(e) => (e.currentTarget.type = "date")}
                     onBlur={(e) => (e.currentTarget.type = "text")}
                     placeholder="March,2021 &#xf073;"
@@ -140,19 +148,23 @@ const MainBoard = () => {
           </div>
           <div>
             <table className={styles.payout_table}>
-              <tr>
-                <th>Payout ID</th>
-                <th>Source</th>
-                <th>Date</th>
-                <th>Amount</th>
-              </tr>
-              {payoutData?.map((transaction, index) => (
-                <tr key={index}>
-                  <td>{transaction.Payout_ID}</td>
-                  <td>{transaction.Source}</td>
-                  <td>{transaction.Date}</td>
-                  <td>{transaction.Amount}</td>
+              <thead>
+                <tr>
+                  <th>Payout ID</th>
+                  <th>Source</th>
+                  <th>Date</th>
+                  <th>Amount</th>
                 </tr>
+              </thead>
+              {payoutData?.map((transaction, index) => (
+                <tbody key={index}>
+                  <tr>
+                    <td>{transaction.Payout_ID}</td>
+                    <td>{transaction.Source}</td>
+                    <td>{transaction.Date}</td>
+                    <td>{transaction.Amount}</td>
+                  </tr>
+                </tbody>
               ))}
             </table>
           </div>

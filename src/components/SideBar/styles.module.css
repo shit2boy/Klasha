@@ -4,6 +4,13 @@
   align-items: center;
   height: 90px;
 }
+
+.hideMenuBar {
+  /* width: 50px; */
+  font-size: 32px;
+  border: 1px solid #3d8f83;
+  padding: 8px;
+}
 .menu_head {
   font-weight: bold;
   font-family: "Space Grotesk";
@@ -27,6 +34,7 @@
   overflow: hidden;
   font-family: "Space Grotesk", sans-serif;
 }
+
 .sidebar .menuList {
   font-family: Founders Grotesk;
   font-style: normal;
@@ -66,9 +74,13 @@
   .sidebar {
     /* width: 200px; */
     display: none;
+
     /* height: auto; */
   }
-
+  .miniSidebar {
+    width: 100%;
+    display: block;
+  }
   .logo {
     display: none;
   }

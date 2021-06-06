@@ -1,13 +1,23 @@
 import styles from "./styles.module.css";
-const SideBar = () => {
+const SideBar = ({ showSideBar, onShowMenu }) => {
   return (
     <>
-      <div className={styles.sidebar}>
+      <div
+        className={`${showSideBar} ? ${styles.miniSidebar} : ${styles.sidebar}`}
+      >
         <div className={styles.logo}>
           <img src="./klashaAssets/logo.svg" alt="klasha_logo" width="100px" />
         </div>
         <div className={styles.sideMenu_items}>
           <div>
+            <span
+              className={styles.hideMenuBar}
+              onClick={() => {
+                onShowMenu();
+              }}
+            >
+              &times;
+            </span>{" "}
             <h5 className={styles.menu_head}>Main Pages</h5>
           </div>
           <ul>
