@@ -13,7 +13,6 @@
 }
 .hideMenuBar {
   display: none;
-  /* width: 50px; */
   font-size: 22px;
 }
 .header .header_items {
@@ -200,7 +199,7 @@
 @media (max-width: 480px) {
   .sidebar {
     /* width: 200px; */
-    display: none;
+    /* display: none; */
     /* height: auto; */
   }
   .main_container {

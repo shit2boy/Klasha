@@ -12,10 +12,12 @@ const App = () => {
 
   return (
     <div>
-      {minisidebar && (
-        <SideBar showSideBar={minisidebar} onShowMenu={toggleNav} />
-      )}
-      {minisidebar && <SideBar showSideBar="hide" onShowMenu={toggleNav} />}
+      <SideBar
+        showSideBar={minisidebar ? minisidebar : "hide"}
+        onShowMenu={toggleNav}
+      />
+
+      {/* {!minisidebar && <SideBar showSideBar="hide" onShowMenu={toggleNav} />} */}
       <MainBoard onShowMenu={toggleNav} />
     </div>
   );

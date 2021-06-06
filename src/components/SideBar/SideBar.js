@@ -10,14 +10,14 @@ const SideBar = ({ showSideBar, onShowMenu }) => {
         </div>
         <div className={styles.sideMenu_items}>
           <div>
-            <span
-              className={styles.hideMenuBar}
+            <p
+              className={styles.hideMenu}
               onClick={() => {
                 onShowMenu();
               }}
             >
               &times;
-            </span>{" "}
+            </p>{" "}
             <h5 className={styles.menu_head}>Main Pages</h5>
           </div>
           <ul>
